@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Toc Game</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+           
+        }
+
+        .jumbotorn{
+            
+           
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background:linear-gradient(rgba(31, 118, 212, 0.56),rgb(19, 190, 212));
+            border-radius: 5px;
+            box-shadow:4px 6px 6px  rgba(198, 206, 230, 0.912),6px 6px 6px rgba(36, 169, 193, 0.449) inset ;
+        }
+        table{
+            border: 1px solid black;
+            margin: 20px;
+            background: white;
+            color: black;
+        }
+        td{
+            border: 1px solid black;
+            width: 50px;
+            height: 50px;
+           text-align: center;
+           font-size: 2rem;
+        }
+        #btn{
+            margin: 10px;
+           padding-right: 30px;
+           padding-left: 30px;
+           padding-top: 10px;
+           padding-bottom: 10px;
+           border-radius: 5px;
+           border: none;
+           color: white;
+           background:linear-gradient(rgba(16, 69, 125, 0.56),rgb(55, 182, 199));
+        }
+        #btn:hover{
+            cursor: pointer;
+           
+            transition: 0.5s;
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotorn">
+            <h1>Welcome to Tic Toc Game</h1>
+            <p>Be Ready To play to improve logical thinking.</p>
+            <button id="btn" type="button">Restart</button>
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+             </div>
+    </div>
+   <script >
+    let restart=document.querySelector('#btn');
+let cells=document.querySelectorAll('td');
+    function clearAllcell(){
+          for(let i=0;i<cells.length;i++)
+          {
+            cells[i].textContent='';
+          }
+     }
+     restart.addEventListener('click',clearAllcell);
+
+     function contant(){
+        if(this.textContent==''){
+            this.textContent='X';
+        }
+        else if(this.textContent=='X'){
+            this.textContent='O';
+        }
+        else{
+            this.textContent=''
+        }
+     }
+     for(let i=0;i<cells.length;i++){
+        cells[i].addEventListener('click',contant)
+     }
+    
+   </script>
+   
+</body>
+
+</html>
